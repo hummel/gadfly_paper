@@ -1,2 +1,2 @@
 untitled.tex
-Section_Capabilities_label_capabilities_Three__.tex
+section_Capabilities_label_capabilities_Three__.tex
