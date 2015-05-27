@@ -1,2 +1,2 @@
 Introduction.tex
-section_Capabilities_label_capabilities_Three__.tex
+Capabilities.tex
