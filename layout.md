@@ -1,3 +1,3 @@
 Introduction.tex
-Capabilities.tex
+Framework.tex
 Visualization.tex
