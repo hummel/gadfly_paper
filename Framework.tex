@@ -5,6 +5,7 @@ The motivation for building an analysis framework on top of pandas is twofold.  
 
 \subsection{Data Organization}
 \label{hierarchy}
+The framework makes some assumptions about how the simulation output is organized.  First and foremost, that it is in an HDF5 file.  Then, each particle type is expected to be contained in a different group, labeled PartType0, PartType1, etc.  Finally, an additional group, Header, is also expected, containing metadata for the simulation snapshot as hdf5 attributes.
 
 \subsection{Units and physical constants}
 \label{units}
