@@ -1,4 +1,4 @@
 Introduction.tex
 Framework.tex
 Visualization.tex
-section_Parallel_Batch_Processing_batch_processing__.tex
+Batch Processing.tex
