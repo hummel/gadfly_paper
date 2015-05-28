@@ -5,7 +5,7 @@ The motivation for building an analysis framework on top of pandas is twofold.  
 
 \subsection{Data Organization}
 \label{hierarchy}
-The framework makes some assumptions about how the simulation output is organized.  Each particle type is expected to be contained in a different group, labeled PartType0, PartType1, etc. Finally, an additional group, Header, is also expected, containing metadata for the simulation snapshot as hdf5 attributes.  
+The framework makes some assumptions about how the simulation output is organized.  Each particle type is expected to be contained in a different group, labeled PartType0, PartType1, etc. An additional group, Header, is also expected, containing metadata for the simulation snapshot as hdf5 attributes.  
 
 Data for each particle type (e.g., dark matter, gas, etc.) is stored in a separate DataFrame and indexed by particle number.  Individual fields can be loaded into the dataframes and deleted at will.  Finally, an additional group, Header, is also expected, containing metadata for the simulation snapshot as hdf5 attributes.  These DataFrame objects, loaded as necessary from disk, are then gathered in a snapshot object, along with the header information, and any other snapshot-specific metadata.  Metadata relevant to the simulation as a whole is then gathered in a simulation class, which also implements batch processing methods.
 
