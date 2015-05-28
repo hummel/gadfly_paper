@@ -4,6 +4,6 @@
 Highly optimized routine for volume rendering of SPH particles.  Three methods available:
 \begin{enumerate}
 \item Primary algorithm written in C, parallelized with OpenMP, and wrapped using scipy.weave
-\item
-\item
+\item Secondary algorithm written in pure python, and just-in-time compiled using Numba.
+\item Fallback pure python routine.  500X slower than other two.
 \end{enumerate}
