@@ -6,7 +6,7 @@ However, the software tools for analyzing such datasets have not kept pace, such
 This problem is particularly acute for users of the smoothed particle hydrodynamics (SPH) code GADGET \citep{SpringelYoshidaWhite2001,Springel2005}.  
 GADGET is used to investigate a wide range of astrophysical problems due to the ease with which it can be extended.  
 Unfortunately this also leads to fractionation of the data storage format as each research group modifies the output to suit their needs.
-This state of affairs has historically forced significant duplication of effort, 
+This state of affairs has historically forced significant duplication of effort, with individual research groups separately developing their own unique analysis scripts to perform similar operations.
 
 
 While use of the HDF5 data model provides a solid starting point, being able to read in a dataset is only the first step in performing useful, insight-generating analysis.  Python is quickly becoming the language of choice for astronomers, and the analysis capabilities provided by the nascent pandas library will only strengthen that trend in the future.  Pandas is a thoroughly documented, open-source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for python with a strong community of developers. With this in mind, we present a pandas-based framework for analyzing GADGET-HDF5 files: the GADGET dataframe library, or GADFLY.
