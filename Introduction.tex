@@ -3,24 +3,18 @@
 
 In the past decade, astrophysical simulations have increased dramatically in both size and sophistication, and the typical size of the datasets produced has grown accordingly.  
 However, the software tools for analyzing such datasets have not kept pace, such that one of the primary barriers to exploratory investigation is simply manipulating the data.  
-This problem is particularly acute for users of the popular smoothed particle hydrodynamics (SPH) code \textsc{gadget} \citep{SpringelYoshidaWhite2001,Springel2005}.  
-\textsc{gadget} is widely used to investigate a range of astrophysical problems; unfortunately this also leads to fractionation of the data storage format as each research group modifies the output to suit their needs.
+This problem is particularly acute for users of the popular smoothed particle hydrodynamics (SPH) code GADGET \citep{SpringelYoshidaWhite2001,Springel2005}.  
+GADGET is widely used to investigate a range of astrophysical problems; unfortunately this also leads to fractionation of the data storage format as each research group modifies the output to suit their needs.
 This state of affairs has historically forced significant duplication of effort, with individual research groups separately developing their own unique analysis scripts to perform similar operations.
 
 Fortunately, the issue of data management and analysis is not endemic to astronomy, and the resulting overlap with the needs of the broader scientific community and the industrial community at large provides a large pool of scientific software developers to tackle these common problems.
 In recent years, this broader community has settled on \code{python} as its programming language of choice due to its efficacy as a 'glue' language and the rapid speed of development it allows.  
 This has led to the development of a robust scientific software ecosystem with packages for numerical data analysis like \code{numpy} (Oliphant 2006; Van Der Walt et al. 2011), \code{scipy} (Jones et al. 2001), \code{pandas} (McKinney 2010), and \code{scikit-image}; \code{matplotlib} (Hunter 2007), and \code{seaborn} for plotting; \code{scikit-learn} for machine learning, and statistics and modeling packages like \code{scikits-statsmodels}, \code{pymc}, and \code{emcee} \citep{Foreman-Mackeyetal2013}.
-
 \code{python} is quickly becoming the language of choice for astronomers as well, with the Astropy project \citep{Robitailleetal2013} and its affiliated packages providing a coordinated set of tools implementing the core astronomy-specific functionality needed by researchers. 
 Additionally, the development of flexible \code{python} packages like \code{yt} \citep{Turketal2011} and \code{pynbody} \citep{Pontzenetal2013}, capable of analyzing and visualizing astrophysical simulation data from several different simulation codes, have greatly improved the ability of computational researchers to perform useful, insight-generating analysis of their datasets.
 
 Recently, the scientific \code{python} community has begun to converge on the \code{DataFrame} provided by the high-performance \code{pandas} data analysis library as a common data structure for the ecosystem. 
 As a result, once data is loaded into a \code{DataFrame}, it becomes much easier to take advantage of the powerful analysis tools provided by the broader scientific computing ecosystem.
-With this in mind, we present a \code{pandas}-based framework for analyzing \textsc{gadget} simulation data, \textsc{gadfly}: the \textsc{GAdget} \code{DataFrame} LibrarY.
+With this in mind, we present a pandas-based framework for analyzing \textsc{GADGET} files, : the GADGET dataframe library, or GADFLY.
 
-In this paper we present the first public release (v0.2) of \code{gadfly}.   Section \ref{framework} describe the structure of 
-
-Section \ref{framework} Section \ref{visualization} Section \ref{batch_processing} Section \ref{future} Section \ref{conclusions.}
-%This project is in no way expected to be a replacement for the far more feature-complete yt or pynbody projects. Rather, we focus instead on implementing the minimum functionality necessary to interface between simulation data in the GADGET HDF5 format, and the pandas data analysis library.
-
-
+This project is in no way expected to be a replacement for the far more feature-complete yt or pynbody projects. Rather, we focus instead on implementing the minimum functionality necessary to interface between simulation data in the GADGET HDF5 format, and the pandas data analysis library.%Adoption of the platform-independent Hierarchical Data Format (HDF5) for data storage helps mitigate some of these issues, being able to load a dataset into memory is only the first step in performing useful, insight-generating analysis.  
