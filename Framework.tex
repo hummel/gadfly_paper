@@ -1,7 +1,11 @@
 \section{A Framework built on pandas}
 \label{framework}
 
-The motivation for building an analysis framework on top of pandas is twofold.  Most importantly, doing so allows us to leverage existing capabilities of that library, and its strong developer community.  Second, using pandas.DataFrame as the primary data container rather than numpy arrays makes it much easier to keep different particle properties indexed correctly while still affording the flexibility to load and remove particle properties from memory at will.
+There are several motivations for building an analysis framework around the \code{pandas.DataFrame}. 
+Most important, \code{pandas} itself is a thoroughly documented, open-source, BSD-licensied library providing high-performance, easy-to-use data structures and analysis tools, and has a strong community of developers working to improve it.  
+Secondly, as \code{pandas} is becoming the de-facto standard for data analysis in python, doing so simplifies interoperability with the rest of the tools provided by the broader scientific python ecosystem.
+doing so allows us to leverage existing capabilities of that library, and its strong developer community.
+Finally, using \code{pandas.DataFrame} as the primary data container rather than \code{numpy} arrays makes it much easier to keep different particle properties indexed correctly while still affording the flexibility to load and remove data from memory at will.
 
 \subsection{Data Organization}
 \label{hierarchy}
