@@ -1,12 +1,14 @@
 \section{A Framework built on pandas}
 \label{framework}
 
+The guiding principle underlying the design of this framework is to enable exploratory investigation.
+This requires both intelligent memory management for handling out-of-core datasets, and a robust indexing system to ensure that particle properties do not become misaligned in memory.  
 There are several motivations for building an analysis framework around the \code{pandas.DataFrame}. 
 Most important, \code{pandas} itself is a thoroughly documented, open-source, BSD-licensed library providing high-performance, easy-to-use data structures and analysis tools, and has a strong community of developers working to improve it.  
 Secondly, as \code{pandas} is becoming the de-facto standard for data analysis in python, doing so simplifies interoperability with the rest of the tools provided by the broader scientific python ecosystem.
 Finally, using \code{pandas.DataFrame} as the primary data container rather than \code{numpy} arrays makes it much easier to keep different particle properties indexed correctly while still affording the flexibility to load and remove data from memory at will.
 
-The guiding principle behind the development of this framework is to 
+
 
 \subsection{Snapshot--DataFrame Interface}
 
