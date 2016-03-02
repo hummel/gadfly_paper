@@ -13,7 +13,9 @@ More broadly, as \code{pandas} is becoming the de-facto standard for data analys
 \label{interface}
 \code{gadfly} is designed for use with simulation data stored in the HDF5 format, with file access provided by \code{h5py}.  
 While we aim to keep \code{gadfly} as general as possible, some assumptions about the storage format are necessary.
-Each particle type is expected to be contained in a different group, labeled \code{PartType0, PartType1}, etc. An additional group, \code{Header}, is also expected, containing metadata for the simulation snapshot as HDF5 attributes.  
+Each particle type is expected to be contained in a different HDF5 group, labeled \code{PartType0, PartType1}, etc. An additional group, \code{Header}, is also expected, containing metadata for the simulation snapshot as HDF5 attributes. 
+
+All particle types are expected to contain
 
 \subsection{Organizational Structure}
 \label{hierarchy}
