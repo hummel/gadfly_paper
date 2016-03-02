@@ -22,9 +22,13 @@ Our memory-efficient approach to data access is outlined in Section \ref{fileIO}
 \label{hierarchy}
 
 \subsubsection{Particle Dataframes}
-Data for each particle type (e.g., dark matter, gas, etc.) is stored in a separate DataFrame and indexed by particle number.  Individual fields can be loaded into the dataframes and deleted at will, with coherent slicing across multiple data fields.  
+Data for each particle type (e.g., dark matter, gas, etc.) is stored in a separate DataFrame and indexed by particle ID number.  
+Individual fields can be loaded into the dataframes and deleted at will, with coherent slicing across multiple data fields, courtesy of \code{pandas}.  
+The base \code{PartType} objects, \code{PartTypeNbody} and \code{PartTypeSPH}
+
 \subsubsection{\code{Snapshot}}
 These DataFrame objects, loaded as needed from disk, are then gathered in a snapshot object, along with the header information, and any other snapshot-specific metadata.  
+
 \subsubsection{\code{Simulation}}
 Metadata relevant to the simulation as a whole is then gathered in a simulation class, which also implements batch processing methods.
 
