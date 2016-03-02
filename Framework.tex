@@ -8,19 +8,28 @@ Using  the \code{pandas DataFrame} as the primary data container rather than sep
 In addition, \code{pandas} itself is a thoroughly documented, open-source, BSD-licensed library providing high-performance, easy-to-use data structures and analysis tools, and has a strong community of developers working to improve it.  
 More broadly, as \code{pandas} is becoming the de-facto standard for data analysis in python, doing so simplifies interoperability with the rest of the tools in the ecosystem.
 
-
-\subsection{Loading Data}
-\label{interface}
 \code{gadfly} is designed for use with simulation data stored in the HDF5 format, with file access provided by \code{h5py}.  
-While we aim to keep \code{gadfly} as general as possible, some assumptions about the storage format are necessary.
+While we otherwise aim to keep \code{gadfly} as general as possible, some assumptions about the storage format are necessary.
 Each particle type is expected to be contained in a different HDF5 group, labeled \code{PartType0, PartType1}, etc; a \code{Header} group is also expected, containing metadata for the simulation snapshot as HDF5 attributes. 
 All particles are expected to have the following fields defined: particle IDs, masses, coordinates, and velocities.  
 SPH particles are additionally expected to have a smoothing length, density, and internal energy.  
 
+This section provides an overview of the design and capabilities of the \code{gadfly} framework.  
+Section \ref{hierarchy} describes the \code{Simulation}, \code{Snapshot}, and \code{PartType DataFrame} objects at the core of \code{gadfly}.  
+Our memory-efficient approach to data access is outlined in Section \ref{fileIO}, and our handling of unit conversions and coordinate transformations is discussed in Sections \ref{units} and \ref{coordinates}, respectively.
+
 \subsection{Organizational Structure}
 \label{hierarchy}
 
-Data for each particle type (e.g., dark matter, gas, etc.) is stored in a separate DataFrame and indexed by particle number.  Individual fields can be loaded into the dataframes and deleted at will, with coherent slicing across multiple data fields.   These DataFrame objects, loaded as needed from disk, are then gathered in a snapshot object, along with the header information, and any other snapshot-specific metadata.  Metadata relevant to the simulation as a whole is then gathered in a simulation class, which also implements batch processing methods.
+\subsubsection{Particle Dataframes}
+Data for each particle type (e.g., dark matter, gas, etc.) is stored in a separate DataFrame and indexed by particle number.  Individual fields can be loaded into the dataframes and deleted at will, with coherent slicing across multiple data fields.  
+\subsubsection{\code{Snapshot}}
+These DataFrame objects, loaded as needed from disk, are then gathered in a snapshot object, along with the header information, and any other snapshot-specific metadata.  
+\subsubsection{\code{Simulation}}
+Metadata relevant to the simulation as a whole is then gathered in a simulation class, which also implements batch processing methods.
+
+\subsection{Data Access}
+\label{fileIO}
 
 \subsection{Units and physical constants}
 \label{units}
