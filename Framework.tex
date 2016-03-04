@@ -1,5 +1,5 @@
 \section{A Framework built on pandas}
-\label{framework}
+\label{sec:framework}
 
 There are several motivations for building an analysis framework around the \code{pandas DataFrame}. 
 The guiding principle underlying the design of this framework is to enable exploratory investigation.
@@ -19,26 +19,29 @@ Section \ref{hierarchy} describes the \code{Simulation}, \code{Snapshot}, and \c
 Our memory-efficient approach to data access is outlined in Section \ref{fileIO}, and our handling of unit conversions and coordinate transformations is discussed in Sections \ref{units} and \ref{coordinates}, respectively.
 
 \subsection{Organizational Structure}
-\label{hierarchy}
+\label{sec:hierarchy}
 
 \subsubsection{Particle Dataframes}
+\label{sec:df}
 Data for each particle type (e.g., dark matter, gas, etc.) is stored in a separate DataFrame and indexed by particle ID number.  
 Individual fields can be loaded into the dataframes and deleted at will, with coherent slicing across multiple data fields, courtesy of \code{pandas}.  
 The base \code{PartType} objects, \code{PartTypeNbody} and \code{PartTypeSPH}
 
 \subsubsection{\code{Snapshot}}
+\label{sec:snap}
 These DataFrame objects, loaded as needed from disk, are then gathered in a snapshot object, along with the header information, and any other snapshot-specific metadata.  
 
 \subsubsection{\code{Simulation}}
+\label{sec:sim}
 Metadata relevant to the simulation as a whole is then gathered in a simulation class, which also implements batch processing methods.
 
 \subsection{Data Access}
-\label{fileIO}
+\label{sec:fileIO}
 
 \subsection{Units and physical constants}
-\label{units}
+\label{sec:units}
 Physical constants are imported from astropy, where necessary.  Unit conversions are dealt with in a similar manner; unfortunately pandas DataFrames do not play nice with astropy quantities, and so the unit system included here is rudimentary at best.
 
 \subsection{Coordinate Transformations}
-\label{coordinates}
+\label{sec:coordinates}
 pyGadget includes a coordinate module for converting between cartesian, spherical, and cylindrical coordinates, linear coordinate translation, and arbitrary axis rotation.
