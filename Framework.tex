@@ -30,7 +30,7 @@ Metadata relevant to the simulation as a whole is then gathered in a simulation 
 Each \code{Snapshot} object represents a single HDF5 snapshot file on disk.  File access---provided by \code{h5py}---is handled via the \code{Snapshot} object, and the actual particle data, loaded as needed into the \code{PartType} dataframes described in Section \ref{sec:df}, is gathered here with each particle type contained in a separate \code{PartType} dataframe.  
 The information contained in the \textsc{gadget} header is also kept here in a \code{Header} object, along with access to the additional metadata and unit information stored in the relevant \code{Simulation} object.
 
-\subsubsection{\code{PartType Dataframes}
+\subsubsection{\code{PartType} Dataframes}
 \label{sec:df}
 Data for each particle type (e.g., dark matter, gas, etc.) is stored in a separate \code{PartType} dataframe and indexed by particle ID number. 
 Individual fields can be loaded into the dataframes and deleted at will, with coherent slicing across multiple data fields, courtesy of \code{pandas}.  
