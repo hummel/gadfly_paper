@@ -21,6 +21,15 @@ Our memory-efficient approach to data access is outlined in Section \ref{sec:fil
 \subsection{Organizational Structure}
 \label{sec:hierarchy}
 
+\subsubsection{\code{Simulation}}
+\label{sec:sim}
+Metadata relevant to the simulation as a whole is then gathered in a simulation class, which also implements batch processing methods.
+
+\subsubsection{\code{Snapshot}}
+\label{sec:snap}
+Each \code{Snapshot} object represents a single HDF5 snapshot file on disk.  File access---provided by \code{h5py}---is handled via the \code{Snapshot} object, and the actual particle data, loaded as needed into the \code{PartType} dataframes described in Section \ref{sec:df}, is gathered here with each particle type contained in a separate \code{PartType} dataframe.  
+The information contained in the \textsc{gadget} header is also kept here in a \code{Header} object, along with access to the additional metadata and unit information stored in the relevant \code{Simulation} object.
+
 \subsubsection{Particle Dataframes}
 \label{sec:df}
 Data for each particle type (e.g., dark matter, gas, etc.) is stored in a separate DataFrame and indexed by particle ID number. 
@@ -30,14 +39,6 @@ As such, \code{gadfly} dataframes retain all the capabilities of the \code{panda
 
 Nonstandard particle fields can be easily loaded into \code{gadfly} as well; fields loaded in this manner simply lack automated unit conversion.
 Alternatively, a custom dataframe class inheriting from \code{PartTypeNbody} or \code{PartTypeSPH} as appropriate can be defined to provide loading functions for both nonstandard particle fields and additional derived properties (i.e., temperature). And example of a custom class---PartTypeCustom.py---is provided in the examples distributed with \code{gadfly}, and the usage of such a custom class is demonstrated in Figure \ref{fig:PartTypeCustom}.
-
-\subsubsection{\code{Snapshot}}
-\label{sec:snap}
-These DataFrame objects, loaded as needed from disk, are then gathered in a snapshot object, along with the header information, and any other snapshot-specific metadata.  
-
-\subsubsection{\code{Simulation}}
-\label{sec:sim}
-Metadata relevant to the simulation as a whole is then gathered in a simulation class, which also implements batch processing methods.
 
 \subsection{Data Access}
 \label{sec:fileIO}
