@@ -38,7 +38,7 @@ The information contained in the \textsc{gadget} header is also kept here in a \
 
 \subsubsection{\code{Simulation}}
 \label{sec:sim}
-Metadata relevant to the simulation as a whole, such as filepaths and unit information, are stored in a \code{Simulation} object.  Initializing a \code{Simulation} object is the first step in any analysis using \code{gadfly} as this is where default values for all subsequent analysis are set, including locating all relevant snapshot files, choosing a coordinate system, and setting the field names of the default particle properties expected by \code{gadfly}.  \Code{Snapshot}s are loaded via \verb|Simulation.load}_snapshot()|, and the parallel batch processing functionality described in Section \ref{sec:parallel} is implemented at this level as well.
+Metadata relevant to the simulation as a whole, such as filepaths and unit information, are stored in a \code{Simulation} object.  Initializing a \code{Simulation} object is the first step in any analysis using \code{gadfly} as this is where default values for all subsequent analysis are set, including locating all relevant snapshot files, choosing a coordinate system, and setting the field names of the default particle properties expected by \code{gadfly}.  \Code{Snapshot}s are loaded via \verb|Simulation.load_snapshot()|, and the parallel batch processing functionality described in Section \ref{sec:parallel} is implemented at this level as well.
 
 \subsection{Data Access}
 \label{sec:fileIO}
