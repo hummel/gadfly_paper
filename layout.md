@@ -6,6 +6,6 @@ Abstract.tex
 2-Units.tex
 2-Coordinates.tex
 3-Visualization.tex
-Parallelism.tex
+3-Parallelism.tex
 Future.tex
 conclusions.tex
