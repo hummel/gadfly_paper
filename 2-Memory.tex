@@ -7,3 +7,6 @@ Fortunately the HDF5 protocol is well-suited to such non-contiguous file access,
 The first method requires definition of a refinement criterion, such as particles above a given density threshold.
 The resulting `refined' index can then be used to select only the corresponding values from subsequently loaded particle fields.
 While this method is efficient, it is poorly suited to exploratory analysis where the proper refinement criterion may not be know \it{a priori}.
+However, when additional fields are loaded into an existing \code{PartType} dataframe that has been manually refined, particles not in the existing data are dropped.
+This allows for the incremental refinement along several axes of the data kept in memory.
+As fields are loaded additional cuts can be made, resulting in the selection of a precisely targeted primary dataset from which subsequent derived properties may be calculated, serving to reduce computational overhead as well.
