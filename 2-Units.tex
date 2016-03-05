@@ -1,3 +1,4 @@
-\subsection{Units and physical constants}
+\subsection{Units}
 \label{sec:units}
-Physical constants are imported from astropy, where necessary.  Unit conversions are dealt with in a similar manner; unfortunately pandas DataFrames do not play nice with astropy quantities, and so the unit system included here is rudimentary at best.
+\code{Gadfly} implements a minimal units-handling for converting between the native code units in which \textsc{gadget} stores data and the physical units of interest to astronomers.  
+However, \textscs{gadget}'s code units may be modified to suit the problem at hand, an thus must be specified at \code{gadfly} initialization if they differ from the defaults listed in Table \ref{code_unit_defaults} below.
