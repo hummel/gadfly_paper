@@ -3,6 +3,7 @@
 One of the primary goals of the \code{gadfly} project is to enable the analysis of large datasets on machines with limited memory.
 Enabling this requires intelligent memory management, loading only the particle data of interest from the disk.
 Fortunately the HDF5 protocol is well-suited to such non-contiguous file access, allowing not only individual data fields to be accessed independently, but also for the loading of select entries only from the field in question.
+
 \code{Gadfly} allows two complementary approaches to minimizing the memory footprint.
 The first method requires definition of a refinement criterion, such as particles above a given density threshold.
 The resulting `refined' index can then be used to select only the corresponding values from subsequently loaded particle fields.
