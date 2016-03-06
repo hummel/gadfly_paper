@@ -6,13 +6,13 @@ Conversion from code units to the physical units system of choice is handled at 
 The default units for length, time, mass, etc. can be specified at initialization, along with whether to use physical or comoving coordinates (for cosmological simulations) and whether to factor the Hubble constant out of the reported units (i.e., units of Mpc vs. Mpc/h).
 
 \begin{table}[h!]
+    \centering
+    \caption{Caption for the table.}
+    \label{code_unit_defaults}
     \begin{tabular}{ll}
-     \centering
-      \caption{Caption for the table.}
-      \label{code_unit_defaults}
-        \hline \hline \\
+        \hline
         Unit & Conversion to \verb|cgs|\\
-        \hline \\
+        \hline
         \verb|UnitMass_in_g| &  $1.989\times10^{43}$\\ 
         \verb|UnitLength_in_cm| & $3.085678\times10^{21}$ \\ 
         \verb|UnitVelocity_in_cm_per_s| & $1.0\times10^5$ \\ 
