@@ -5,7 +5,7 @@ Abstract.tex
 2-Memory.tex
 2-Units.tex
 2-Coordinates.tex
-3-Visualization.tex
 3-Parallelism.tex
+3-Visualization.tex
 Future.tex
 conclusions.tex
