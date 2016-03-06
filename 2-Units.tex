@@ -5,5 +5,23 @@ However, \textsc{gadget}'s code units may be modified to suit the problem at han
 Conversion from code units to the physical units system of choice is handled at loading.
 The default units for length, time, mass, etc. can be specified at initialization, along with whether to use physical or comoving coordinates (for cosmological simulations) and whether to factor the Hubble constant out of the reported units (i.e., units of Mpc vs. Mpc/h).
 
+begin{table}
+  \caption{Total gas mass in various minihalo components for each simulation at $t=5000\yr$. Here we have defined $M_{\rm core}$ and $M_{\rm disc}$ as the total gas mass with $n\geq10^2\cc$ and $n\geq10^8\cc$, respectively. These values are independent of whether shielding is included.}
+  \centering
+  \begin{tabular}{r c c c c }
+    \hline\hline
+    \jxr & $M_{\rm vir}$ & $M_{\rm core}$ & $M_{\rm disc}$ & $M_{\rm sink}$\\
+    & ($10^4\msun$) & ($10^3\msun$) & (\msun) & (\msun) \\
+    \hline
+    $0$        & 2.4 & 2.5 & 100 & 41 \\
+    $J_0$      & 2.2 & 2.2 &  60 & 23 \\
+    $10\,J_0$  & 1.9 & 2.1 & 130 & 74 \\
+    $100\,J_0$ & 1.2 & 1.3 &  30 & 11 \\
+    \hline
+    \\
+  \end{tabular}
+  \label{masstable}
+\end{table}
+
 While defaults are set at startup, they can be modified at any time, either by calling \verb|units.set_length('AU')| for example, which alters the default length unit for all subsequently loaded fields, or by calling a particle field's load function with the optional \code{units} keyword argument.  
 Changing the units of an existing field can be done by simply reloading it; the field will remain properly indexed as described in Section \ref{sec:fileIO}. Examples of both approaches to unit conversions are shown in Figure \ref{fig:units}.
