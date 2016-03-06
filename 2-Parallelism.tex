@@ -1,9 +1,9 @@
 \subsection{Parallel Batch Processing}
 \label{sec:parallel}
-Many \code{gadfly} use cases require running an identical analysis on many snapshot in order to study how the system changes with time.  
-These operations are often completely independent, and thus amenable to parallelization so long as the machine being used has sufficient memory.
-To aid in the parallelization of such analyses, \code{gadfly} includes utilities for performing such parallel batch processing jobs by making use of python's \code{multiprocessing} module. 
+Investigating the results of a simulation often requires running an identical analysis on many snapshot in order to study how the system changes with time.  
+These operations are typically completely independent, and thus amenable to parallelization---so long as the machine being used has sufficient memory.
+To aid in the parallelization of such analyses, \code{gadfly} includes utilities for performing parallel batch processing jobs by making use of python's \code{multiprocessing} module. 
 
-One issue with doing operations such as this in parallel is that they are often IO-bound processes.
+One issue with doing operations such as this in parallel is that they are often IO-bound.
 To mitigate the issues that arise when multiple processes attempt to read large amounts of data from disk simultaneously, \code{gadfly}'s parallelization utilities are designed to load the data needed for a given analysis serially in a separate thread from the main execution. 
 As the necessary data from each snapshot file is loaded, execution is passed to a pool of worker processes which can then perform the remainder of the analysis in parallel.  An example of such a parallel batch processing script is included in the examples distributed with \code{gadfly}.
