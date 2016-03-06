@@ -14,6 +14,4 @@ Each particle type is expected to be contained in a different HDF5 group, labele
 All particles are expected to have the following fields defined: particle IDs, masses, coordinates, and velocities.  
 SPH particles are additionally expected to have a smoothing length, density, and internal energy.  
 
-This section provides an overview of the design and capabilities of the \code{gadfly} framework.  
-Section \ref{sec:hierarchy} describes the \code{Simulation}, \code{Snapshot}, and \code{PartType DataFrame} objects at the core of \code{gadfly}.  
-Our memory-efficient approach to data access is outlined in Section \ref{sec:fileIO}, and our handling of unit conversions and coordinate transformations is discussed in Sections \ref{sec:units} and \ref{sec:coords}, respectively.
+This section provides an overview of the design and capabilities of the \code{gadfly} framework, including the \code{Simulation}, \code{Snapshot}, and \code{PartType DataFrame} objects at the core of \code{gadfly} (Section \ref{sec:hierarchy}), our approach to file access and intelligent memory management (Section \ref{sec:fileIO}), our handling of unit conversions (Section \ref{sec:units}) and coordinate transformations (Section \ref{sec:coords}), and the included utilities for parallel batch processing (Section \ref{sec:parallel}).
