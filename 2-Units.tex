@@ -1,11 +1,11 @@
 \subsection{Units}
 \label{sec:units}
 \code{Gadfly} implements a minimal units-handling for converting between the native code units in which \textsc{gadget} stores data and the physical units of interest to astronomers.  
-However, \textsc{gadget}'s code units may be modified to suit the problem at hand, an thus must be specified at \code{gadfly} initialization if they differ from the defaults listed in Table \ref{code_unit_defaults} below.
+However, \textsc{gadget}'s code units may be modified to suit the problem at hand, an thus must be specified at \code{gadfly} initialization if they differ from the defaults listed in Table \ref{code_unit_defaults}.
 Conversion from code units to the physical units system of choice is handled at loading.
 The default units for length, time, mass, etc. can be specified at initialization, along with whether to use physical or comoving coordinates (for cosmological simulations) and whether to factor the Hubble constant out of the reported units (i.e., units of Mpc vs. Mpc/h).
 
-\begin{table}[h!]
+\begin{table}
     \centering
     \caption{Caption for the table.}
     \label{code_unit_defaults}
