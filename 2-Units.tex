@@ -1,11 +1,8 @@
 \subsection{Units}
 \label{sec:units}
 \code{Gadfly} implements a minimal units-handling for converting between the native code units in which \textsc{gadget} stores data and the physical units of interest to astronomers.  
-However, \textsc{gadget}'s code units may be modified to suit the problem at hand, an thus must be specified at \code{gadfly} initialization if they differ from the defaults listed in Table \ref{code_unit_defaults}.
-Conversion from code units to the physical units system of choice is handled at loading.
-The default units for length, time, mass, etc. can be specified at initialization, along with whether to use physical or comoving coordinates (for cosmological simulations) and whether to factor the Hubble constant out of the reported units (i.e., units of Mpc vs. Mpc/h).
-
-\begin{table}
+However, \textsc{gadget}'s code units may be modified to suit the problem at hand, and therefore must be specified at initialization if they differ from the defaults listed in Table \ref{code_unit_defaults}.
+\begin{table}[h!]
     \centering
     \caption{Default code units expected by \code{gadfly}.}
     \label{code_unit_defaults}
@@ -18,6 +15,8 @@ The default units for length, time, mass, etc. can be specified at initializatio
         \verb|Velocity| & $1.0\times10^5\,$cm$\,$s$^{-1}$ \\ 
     \end{tabular} 
 \end{table}
+Conversion from code units to the physical units system of choice is handled at loading.
+The default units for length, time, mass, etc. can be specified at initialization, along with whether to use physical or comoving coordinates (for cosmological simulations) and whether to factor the Hubble constant out of the reported units (i.e., units of Mpc vs. Mpc/h).
 
 While defaults are set at startup, they can be modified at any time, either by calling \verb|units.set_length('AU')| for example, which alters the default length unit for all subsequently loaded fields, or by calling a particle field's load function with the optional \code{units} keyword argument.  
 Changing the units of an existing field can be done by simply reloading it; the field will remain properly indexed as described in Section \ref{sec:fileIO}. Examples of both approaches to unit conversions are shown in Figure \ref{fig:units}.
