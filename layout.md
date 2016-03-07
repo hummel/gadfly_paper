@@ -1,8 +1,8 @@
 Abstract.tex
 1-Introduction.tex
 2-Framework.tex
-2-Structure.tex
 figures/code_usage/code_usage.png
+2-Structure.tex
 2-Memory.tex
 2-Units.tex
 2-Coordinates.tex
