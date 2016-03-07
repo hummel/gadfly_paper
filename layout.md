@@ -9,5 +9,6 @@ figures/code_units/code_units.png
 2-Coordinates.tex
 2-Parallelism.tex
 3-Visualization.tex
+figures/structure_halo/structure_halo.png
 Future.tex
 conclusions.tex
