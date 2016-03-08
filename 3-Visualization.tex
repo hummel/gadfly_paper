@@ -1,7 +1,9 @@
 \section{Visualization}
 \label{sec:vis}
-In addition to the core pandas-based analysis framework, \code{gadfly} includes additional functionality for SPH particle rendering and batch processing in a parallel manner.
-Highly optimized routine for volume rendering of SPH particles.  Three methods available:
+Visualization plays a major role in any analysis of simulation data, and the ability to directly visualize the spatial structure of a system is often crucial to generating insight.
+While the guiding principle of the \code{gadfly} project is to avoid reinventing the wheel, instead relying on the tools developed by the broader scientific python ecosystem wherever possible, SPH particle rendering is one critical area where that broader ecosystem proves insufficient.  
+To mitigate this shortcoming, \code{gadfly} includes a minimal library of SPH visualization tools.
+The SPH particle rendering algorithm at the core of \code{gadfly}'s visualization tools is designed for projecting three-dimensional gas density distributions down to a two-dimensional image; an example of such a visualization produced by gadfly is shown in Figure \ref{fig:vis}.
 \begin{enumerate}
 \item Primary algorithm written in C, parallelized with OpenMP, and wrapped using scipy.weave
 \item Secondary algorithm written in pure python, and just-in-time compiled using Numba.
