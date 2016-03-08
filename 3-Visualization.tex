@@ -7,7 +7,10 @@ The SPH particle rendering algorithm at the core of \code{gadfly}'s visualizatio
 
 \code{Gadfly} includes three separate implementations of this algorithm, each of which is best suited to different conditions:
 \begin{enumerate}
-\item Primary algorithm written in C, parallelized with OpenMP, and wrapped using scipy.weave
-\item Secondary algorithm written in pure python, and just-in-time compiled using Numba.
-\item Fallback pure python routine.  500X slower than other two.
+\item The primary implementation is written in \code{C}, parallelized using OpenMP, and wrapped in python using \code{scipy.weave}.  This method must be locally compiled, and will fail if the python interpreter cannot locate a \code{C} compiler, or if the requisite libraries are not installed.  However, it its the most powerful implementation, best suited to rendering many particles, and to machines with many processors available.
+\item A second implementation makes use of \code{numba} to perform just-in-time (JIT) compilation of pure python code using the LLVM compiler infrastructure.  The resulting serial routine is highly optimized, providing performance within a factor of two of the parallel method on a 16-core machine.  As such, this method is preferable on smaller machines with fewer processors, and for visualizations including fewer particles where the additional overhead associated with the parallel implementation is significant.
+\item The final implementation is a pure python routine included only for situations where the other methods have unmet dependencies. This implementation is over 500 times slower that the others, and as such is suitable only to visualizing small numbers of particles, or as a last resort.
 \end{enumerate}
+
+These methods are all available as independent library functions, and can be used both with particle data in a \code{PartType} dataframe or independently from the rest of the \code{gadfly} framework, with data stored in \code{numpy} arrays.  
+Future versions of \code{gadfly} will greatly simplify the visualization of data stored in a \code{PartType} dataframe through the use of a \code{.visualize()} method.
