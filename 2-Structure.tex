@@ -14,7 +14,7 @@ Alternatively, a custom dataframe class inheriting from \code{PartTypeNbody} or 
 \subsubsection{\code{Snapshot}}
 \label{sec:snap}
 Each \code{Snapshot} object represents a single HDF5 snapshot file on disk.  File access---provided by \code{h5py}---is handled via the \code{Snapshot} object, and the actual particle data, loaded as needed into the \code{PartType} dataframes described in Section \ref{sec:df}, is gathered here with each particle type contained in a separate \code{PartType} dataframe.  
-The information contained in the \textsc{gadget} header is also kept here in a \code{Header} object, along with access to the additional metadata and unit information stored in the relevant \code{Simulation} object.
+The information contained in the \textsc{gadget} header is also maintained here in a \code{Header} object, along with access to the additional metadata and unit information stored in the relevant \code{Simulation} object.
 
 \subsubsection{\code{Simulation}}
 \label{sec:sim}
