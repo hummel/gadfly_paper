@@ -1,7 +1,7 @@
 Abstract.tex
 1-Introduction.tex
-2-Framework.tex
 figures/code_usage/code_usage.png
+2-Framework.tex
 2-Structure.tex
 figures/code_custom_ptypes/code_custom_ptypes.png
 2-Memory.tex
