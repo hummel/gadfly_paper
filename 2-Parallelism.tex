@@ -1,6 +1,6 @@
 \subsection{Parallel Batch Processing}
 \label{sec:parallel}
-Investigating the results of a simulation often requires running an identical analysis on many snapshot in order to study how the system changes with time.  
+Investigating the results of a simulation often requires running an identical analysis on many snapshots in order to study how the system changes with time.  
 These operations are typically completely independent, and thus amenable to parallelization---so long as the machine being used has sufficient memory.
 To aid in the parallelization of such analyses, \code{gadfly} includes utilities for performing parallel batch processing jobs by making use of python's \code{multiprocessing} module. 
 
