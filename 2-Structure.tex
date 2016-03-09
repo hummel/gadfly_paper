@@ -6,7 +6,7 @@
 Data for each particle type (e.g., dark matter, gas, etc.) is stored in a separate \code{PartType} dataframe and indexed by particle ID number. 
 Individual fields can be loaded into the dataframes and deleted at will, with coherent slicing across multiple data fields, courtesy of \code{pandas}.  
 The base \code{PartType} objects, \code{PartTypeNbody} and \code{PartTypeSPH}, are standard \code{pandas} dataframes with additional functionality for loading standard \textsc{gadget} particle fields from HDF5, converting units, and performing coordinate transformations.  
-As such, \code{PartType} dataframes retain all the capabilities of the \code{pandas.DataFrame} from which they inherit, and any operation that creates a new dataframe instance returns a standard \code{pandas} dataframe.  An example  Figure \ref{fig:usage_example} for an example 
+As such, \code{PartType} dataframes retain all the capabilities of the \code{pandas.DataFrame} from which they inherit, and any operation that creates a new dataframe instance returns a standard \code{pandas} dataframe.  
 
 Nonstandard particle fields (e.g., chemical abundances) can be easily loaded into \code{gadfly} as well; fields loaded in this manner simply lack automated unit conversion.
 Alternatively, a custom dataframe class inheriting from \code{PartTypeNbody} or \code{PartTypeSPH} as appropriate can be defined to provide methods for loading both nonstandard particle fields and additional derived properties (e.g., temperature). An example of such a custom class---\code{PartTypeCustom.py}---is provided in the examples distributed with \code{gadfly}, and the usage of such a custom class is demonstrated in Figure \ref{fig:usage_example}.
