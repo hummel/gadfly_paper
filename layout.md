@@ -3,8 +3,8 @@ Abstract.tex
 2-Framework.tex
 figures/code_usage/code_usage.png
 2-Structure.tex
-2-Memory.tex
 figures/code_custom_ptypes/code_custom_ptypes.png
+2-Memory.tex
 2-Units.tex
 figures/code_units/code_units.png
 2-Coordinates.tex
