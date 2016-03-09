@@ -12,6 +12,6 @@ More broadly, as \code{pandas} is becoming the de-facto standard for data analys
 While we otherwise aim to keep \code{gadfly} as general as possible, some assumptions about the storage format are necessary.
 Each particle type is expected to be contained in a different HDF5 group, labeled \code{PartType0, PartType1}, etc; a \code{Header} group is also expected, containing metadata for the simulation snapshot as HDF5 attributes. 
 All particles are expected to have the following fields defined: particle IDs, masses, coordinates, and velocities.  
-SPH particles are additionally expected to have a smoothing length, density, and internal energy.  
+SPH particles are additionally expected to have a smoothing length, density, and internal energy.  Support for additional fields not included in the original \textsc{gadget} specification, such as chemical abundances, is easily added.
 
 This section provides an overview of the design and capabilities of the \code{gadfly} framework, including the \code{Simulation}, \code{Snapshot}, and \code{PartType DataFrame} objects at the core of \code{gadfly} (Section \ref{sec:hierarchy}), our approach to file access and intelligent memory management (Section \ref{sec:fileIO}), our handling of unit conversions (Section \ref{sec:units}) and coordinate transformations (Section \ref{sec:coords}), and the included utilities for parallel batch processing (Section \ref{sec:parallel}).
