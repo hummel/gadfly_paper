@@ -4,18 +4,12 @@ One of the primary goals of the \code{gadfly} project is to enable the analysis 
 Enabling this requires intelligent memory management, loading only the particle data of interest from the disk.
 Fortunately the HDF5 protocol is well-suited to such non-contiguous file access, allowing not only individual data fields to be accessed independently, but also for  loading only select entries from the field in question.
 
-\code{Gadfly} allows two complementary approaches to minimizing the memory footprint.
-The first method requires definition of a refinement criterion, such as particles above a given density threshold.
-The resulting `refined' index can then be used to select only the corresponding values from subsequently loaded particle fields.
-While this method is efficient, it is fairly rigid, and poorly suited to exploratory analysis where the proper refinement criterion may not be know {\it{a priori}}.  As such, this approach is best suited for use in scripts where the analysis to be performed is defined beforehand.
+\code{Gadfly} employs two complementary approaches to minimizing the memory footprint.
+The first method requires definition of an optional refinement criterion, such as particles above a given density threshold.
+The resulting `refined' index can then be used to select only the corresponding values from subsequent particle fields as they are loaded.
+While this method efficiently minimizes I/O operations, it is fairly rigid, and attempting to load additional fields into a dataframe from which particles have been manually dropped will fail, as the particle indices will no longer match.  
+As such, this approach is poorly suited to exploratory analysis where the proper refinement criterion may not be know {\it{a priori}} and is best suited for use in scripts where the analysis to be performed is well defined.
 
-The second approach, which can be used in tandem with the refinement index, is designed to allow for incremental manual refinement of the data stored in memory. 
-Naiively attempting to load additional fields into a dataframe from which particles have been manually dropped will fail, as the particle indices will no longer match. \code{Gadfly} solves this by first loading new fields into a \code{pandas.Series} data structure, using the particle ID numbers as an index.  
-
-While use of a refinement criterion minimizes unnecessary I/O operations, this approach is fairly rigid.  For example,  and on its own would fail when 
-To mitigate this, \code{gadfly} performs an intermediate step
-
-separately maintains a full list of particle IDs with which newly loaded fields are combined in a 
-However, when additional fields are loaded into an existing  existing data are dropped.
-This allows for the incremental refinement along several axes of the data kept in memory.
-Additional cuts can be made as subsequent fields are loaded, resulting in the selection of a precisely targeted primary dataset from which derived properties (e.g., temperature) may be calculated, serving to reduce computational overhead as well.
+To mitigate the indexing issues that can arise in situations where data is loaded incrementally, \code{gadfly} performs an intermediate step, first loading new fields into a \code{pandas.Series} data structure, using the particle ID numbers as an index.  This allows \code{pandas} to properly align the particle fields, dropping any particles not in the existing \code{PartType} dataframe from the newly loaded field as it is appended.
+This approach, which can be used in tandem with the refinement index, affords \code{gadfly} the flexibility needed to allow incremental manual refinement of the data stored in memory. 
+Additional cuts can be made as subsequent fields are loaded, resulting in the selection of a precisely targeted primary dataset from which derived  properties (e.g., temperature) may be calculated, serving to reduce computational overhead as well.
