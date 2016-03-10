@@ -17,5 +17,5 @@ However, \textsc{gadget}'s code units may be modified to suit the problem at han
 \end{table}
 Conversion from code units to the physical units system of choice is handled at loading.
 The default units for length, time, mass, etc. can be specified at initialization, along with whether to use physical or comoving coordinates (for cosmological simulations) and whether to factor the Hubble constant out of the reported units (i.e., units of Mpc vs. Mpc/$h$).
-While defaults are set at startup, they can be modified at any time, either by calling \verb|units.set_length()| for example, which alters the default length unit for all subsequently loaded fields, or by calling a particle field's load function with the optional \code{units} keyword argument.  
+While defaults are set at startup, they can be modified at any time, either by calling \verb|units.set_length()|, which alters the default length unit for all subsequently loaded fields, or by calling a particle field's load function with the optional \code{units} keyword argument.  
 Changing the units of an existing field can be done by simply reloading it; the field will remain properly indexed as described in Section \ref{sec:fileIO}. Examples of both approaches to unit conversions are shown in Figure \ref{fig:units}.
