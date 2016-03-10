@@ -9,8 +9,8 @@ The first method requires definition of a refinement criterion, such as particle
 The resulting `refined' index can then be used to select only the corresponding values from subsequently loaded particle fields.
 While this method is efficient, it is poorly suited to exploratory analysis where the proper refinement criterion may not be know {\it{a priori}}.  As such, this approach is best suited for use in scripts where the analysis to be performed is defined beforehand.
 
-While use of a refinement criterion minimizes unnecessary I/O operations, this approach is fairly rigid, and on its own would fail when attempting to load additional fields into an existing \code{PartType} dataframe from which particles have been manually dropped by the user.
-To mitigate this we take advantage of 
+While use of a refinement criterion minimizes unnecessary I/O operations, this approach is fairly rigid, and on its own would fail when attempting to load additional fields directly into an existing \code{PartType} dataframe from which particles have been dropped by the user.
+To mitigate this, \code{gadfly} separately maintains a full list of particle IDs with which newly loaded fields are combined in a \code{pandas.Series} data structure.  
 However, when additional fields are loaded into an existing  existing data are dropped.
 This allows for the incremental refinement along several axes of the data kept in memory.
 Additional cuts can be made as subsequent fields are loaded, resulting in the selection of a precisely targeted primary dataset from which derived properties (e.g., temperature) may be calculated, serving to reduce computational overhead as well.
