@@ -18,8 +18,8 @@ where $r$ is the radius and $h$ is the characteristic width of the kernel, other
 \rho({\bf r}) \simeq \sum_j m_j W({\bf r} - {\bf r}_j, h),
 \end{equation}
 where $m_j$ is the mass of particle $j$, located at ${\bf r}_j$.
-As such, creating visualizations that are faithful to the true physical state of the system requires performing this sum over all particles of interest; this can be quite computationally intensive depending on the number of particles involved and the desired resolution.
-The SPH particle rendering algorithm included in \code{gadfly} performs this summation over two dimensions, producing a density-weighted projection; an example of such a visualization produced by gadfly is shown in Figure \ref{fig:vis}.
+As such, creating visualizations that faithfully reproduce the actual density distribution requires performing this sum over all particles of interest; this can be quite computationally intensive depending on the number of particles involved and the desired resolution.
+The SPH particle rendering algorithm included in \code{gadfly} performs this summation over two dimensions, producing a density-weighted projection. An example of such a visualization produced by \code{gadfly} is shown in Figure \ref{fig:vis}.
 
 \code{Gadfly} includes three separate implementations of this algorithm, each of which is best suited to different conditions:
 \begin{enumerate}
