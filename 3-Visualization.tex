@@ -4,7 +4,10 @@ Visualization plays a major role in any analysis of simulation data, and the abi
 While the guiding principle of the \code{gadfly} project is to avoid reinventing the wheel, instead relying on the tools developed by the broader scientific python community wherever possible, SPH particle rendering is one critical area where that broader ecosystem proves insufficient.  
 To mitigate this shortcoming, \code{gadfly} includes a minimal library of visualization tools.
 
-The particles in an SPH simulation are best thought of as fluid elements sampling the continuum properties of the gas they represent \citep{Lucy1977,GingoldMonaghan1977,Monaghan1992,Springel2010}.  They accomplish this by serving as Lagrangian tracers over which the continuum properties are interpolated using a smoothing kernel $W$.
+The particles in an SPH simulation are best thought of as fluid elements sampling the continuum properties of the gas they represent \citep{Lucy1977,GingoldMonaghan1977,Monaghan1992,Springel2010}.  They accomplish this by serving as Lagrangian tracers over which the continuum properties are interpolated using a smoothing kernel $W$. While it is possible to use alternative kernels, most modern SPH implementations utilize a cubic spline kernel: 
+\begin{equation}
+W(r,h) = 
+\end{equation}
 
 The SPH particle rendering algorithm at the core of \code{gadfly}'s visualization tools is designed for projecting three-dimensional gas density distributions down to a two-dimensional image; an example of such a visualization produced by gadfly is shown in Figure \ref{fig:vis}.
 
