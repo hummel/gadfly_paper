@@ -8,7 +8,7 @@ The particles in an SPH simulation are best thought of as fluid elements samplin
 \begin{equation}
 W(r,h) =
      \begin{cases}
-       1 - 6 \left( \frac{r}{h} \right)^2, &\quad\text{if RMSD}_\text{s-open}\ge6, \text{RMSD}_\text{closed}\ge6\\
+       1 - 6 \left( \frac{r}{h} \right)^2 + 6 \left( \frac{r}{h} \right)^3, & 0 \leq \frac{r}{h} \leq \frac{1}{2}\\
        \text{closed,} &\quad\text{if RMSD}_\text{closed}\le2 \\
        \text{semiopen,} &\quad\text{if RMSD}_\text{s-open}\le2\\
      \end{cases}
