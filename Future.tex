@@ -1,3 +1,3 @@
 \section{Future Development}
 \label{sec:future}
-Future development may include ability to handle other particle based simulations outputs than just GADGET.  When the dask project finally stabilizes their out-of-core DataFrame functionality, moving from pandas to dask would allow for the analysis of large datasets on systems with limited memory.
+The \code{gadfly} package is under active development, and in addition to incremental improvements of the existing functionality, a few significant upgrades are planned for future releases.  First and foremost, the current \code{gadfly} units system is fairly inflexible, with limited support for additional units.  For the next release we plan on replacing the existing units system and instead employing the far more feature complete \code{astropy.units} framework \citep{Robitailleetal2013} as the backend for handling unit conversions.
