@@ -7,6 +7,6 @@ Future releases will also more seamlessly integrate \code{gadfly}'s visualizatio
 At the moment the user is required to pass each required field to the visualization methods individually.
 We intend to integrate this functionality directly into the \code{PartType} dataframe, allowing the user to simply call \code{PartType.visualize()} and be presented with a default density projection of the SPH particles currently in the dataframe, similar to the \code{.plot()} functionality of a standard \code{pandas.DataFrame}.
 
-In the longer term, the \code{dask} project presents an intriguing option for handling very large out-of-core datasets through the use of blocked algorithms and task scheduling.
+In the longer term, the \code{dask}\footnote{\code{http://dask.pydata.org}} project presents an intriguing option for handling very large out-of-core datasets through the use of blocked algorithms and task scheduling.
 \code{Dask} manages this by mapping high-level \code{numpy}, \code{pandas}, and list operations on large datasets to many operations on smaller chunked datasets that can fit in memory.  
 Future releases of \code{gadfly} may migrate the data structure on which the \code{PartType} dataframe is built from the \code{pandas.DataFrame} to \code{dask.dataframe} to take advantage of this functionality.
