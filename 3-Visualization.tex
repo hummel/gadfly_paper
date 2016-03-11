@@ -10,10 +10,10 @@ W(r,h) =
      \begin{cases}
        1 - 6 \left( \frac{r}{h} \right)^2 + 6 \left( \frac{r}{h} \right)^3, & 0 \leq \frac{r}{h} \leq \frac{1}{2}\\
        2 \left(1 - \frac{r}{h}\right)^3, & \frac{1}{2} < \frac{r}{h} \leq 1\\
-       0, & \frac{r}{h} >  1\\
+       0, & \frac{r}{h} >  1,\\
      \end{cases}
-
 \end{equation}
+where $r$ is the radius and $h$ is the characteristic width of the kernel, otherwise known as the smoothing length.
 
 The SPH particle rendering algorithm at the core of \code{gadfly}'s visualization tools is designed for projecting three-dimensional gas density distributions down to a two-dimensional image; an example of such a visualization produced by gadfly is shown in Figure \ref{fig:vis}.
 
