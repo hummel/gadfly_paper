@@ -6,7 +6,14 @@ To mitigate this shortcoming, \code{gadfly} includes a minimal library of visual
 
 The particles in an SPH simulation are best thought of as fluid elements sampling the continuum properties of the gas they represent \citep{Lucy1977,GingoldMonaghan1977,Monaghan1992,Springel2010}.  They accomplish this by serving as Lagrangian tracers over which the continuum properties are interpolated using a smoothing kernel $W$. While it is possible to use alternative kernels, most modern SPH implementations (including \textsc{gadget}) utilize a cubic spline kernel \citep{Springel2014}: 
 \begin{equation}
-W(r,h) = 
+W(r,h) =
+     \begin{cases}
+       \text{open,} &\quad\text{if RMSD}_\text{s-open}\ge6, \text{RMSD}_\text{closed}\ge6\\
+       \text{closed,} &\quad\text{if RMSD}_\text{closed}\le2 \\
+       \text{semiopen,} &\quad\text{if RMSD}_\text{s-open}\le2\\
+       \text{transition,} &\quad\text{otherwise.} \ 
+     \end{cases}
+
 \end{equation}
 
 The SPH particle rendering algorithm at the core of \code{gadfly}'s visualization tools is designed for projecting three-dimensional gas density distributions down to a two-dimensional image; an example of such a visualization produced by gadfly is shown in Figure \ref{fig:vis}.
