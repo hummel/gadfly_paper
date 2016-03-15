@@ -5,8 +5,8 @@ figures/code_usage/code_usage.png
 figures/code_custom_ptypes/code_custom_ptypes.png
 2-Structure.tex
 2-Memory.tex
-2-Units.tex
 figures/code_units/code_units.png
+2-Units.tex
 2-Coordinates.tex
 2-Parallelism.tex
 figures/structure_halo/structure_halo.png
