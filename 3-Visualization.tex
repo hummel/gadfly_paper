@@ -6,16 +6,16 @@ To mitigate this shortcoming, \code{gadfly} includes a minimal library of visual
 
 The particles in an SPH simulation are best thought of as fluid elements sampling the continuum properties of the gas they represent \citep{Lucy1977,GingoldMonaghan1977,Monaghan1992,Springel2010}.  They accomplish this by serving as Lagrangian tracers over which the continuum properties are interpolated using a smoothing kernel $W$. While it is possible to use alternative kernels, most modern SPH implementations (including \textsc{gadget}) utilize a cubic spline kernel \citep{Springel2014}: 
 \begin{equation}
-W(r,h_{\rm sm}) =
+W(r,h_{\rm s}) =
      \begin{cases}
-       1 - 6 \left( \frac{r}{h_{\rm sm}} \right)^2 + 6 \left( \frac{r}{h_{\rm sm}} \right)^3, & 0 \leq \frac{r}{h_{\rm sm}} \leq \frac{1}{2}\\
-       2 \left(1 - \frac{r}{h_{\rm sm}}\right)^3, & \frac{1}{2} < \frac{r}{h_{\rm sm}} \leq 1\\
+       1 - 6 \left( \frac{r}{h_{\rm s}} \right)^2 + 6 \left( \frac{r}{h_{\rm s}} \right)^3, & 0 \leq \frac{r}{h_{\rm s}} \leq \frac{1}{2}\\
+       2 \left(1 - \frac{r}{h_{\rm s}}\right)^3, & \frac{1}{2} < \frac{r}{h_{\rm s}} \leq 1\\
        0, & \frac{r}{h} >  1,\\
      \end{cases}
 \end{equation}
-where $r$ is the radius and $h_{\rm sm}$ is the characteristic width of the kernel, otherwise known as the smoothing length.  The physical density at any point, $\rho(\bf{r})$, is then represented by the sum over all particles
+where $r$ is the radius and $h_{\rm s}$ is the characteristic width of the kernel, otherwise known as the smoothing length.  The physical density at any point, $\rho(\bf{r})$, is then represented by the sum over all particles
 \begin{equation}
-\rho({\bf r}) \simeq \sum_j m_j W({\bf r} - {\bf r}_j, h_{\rm sm}),
+\rho({\bf r}) \simeq \sum_j m_j W({\bf r} - {\bf r}_j, h_{\rm s}),
 \end{equation}
 where $m_j$ is the mass of particle $j$, located at ${\bf r}_j$.
 As such, creating visualizations that faithfully reproduce the actual density distribution requires performing this sum over all particles of interest; this can be quite computationally intensive depending on the number of particles involved and the desired resolution.
