@@ -35,7 +35,7 @@
 %% Running heads will not print in the manuscript style.
 
 \shorttitle{GADFLY: A pandas-based Framework for Analyzing GADGET Simulation Data}
-\shortauthors{Jacob Hummel}
+\shortauthors{Jacob A. Hummel}
 
 %% This is the end of the preamble.  Indicate the beginning of the
 %% paper itself with \begin{document}.
@@ -56,7 +56,7 @@
 %% anywhere in the paper, not just in the front matter.
 %% As in the title, use \\ to force line breaks.
 
-\author{Jacob Hummel}
+\author{Jacob A. Hummel}
 \affil{Department of Astronomy, The University of Texas at Austin, TX 78712, USA}
 \email{jhummel@astro.as.utexas.edu}
 
@@ -142,8 +142,9 @@ Additionally, the development of flexible python packages like \code{yt} \citep{
 Recently, the scientific python community has begun to converge on the \code{DataFrame} provided by the high-performance \code{pandas} data analysis library as a common data structure. 
 As a result, once data is loaded into a \code{DataFrame}, it becomes much easier to take advantage of the powerful analysis tools provided by the broader scientific computing ecosystem.
 With this in mind, we present a \code{pandas}-based framework for analyzing \textsc{gadget} simulation data, \textsc{gadfly}: the \textsc{GAdget} DataFrame LibrarY.
+Rather than providing an alternative to the existing \code{yt} and \code{pynbody} projects, the aim of the \code{gadfly} project is to ease interoperability with the python ecosystem at large, lowering the barrier for access to the tools created by this broader community.
 
-In this paper we present the first public release (v0.1) of \code{gadfly}, which is available at \code{http://github.com/hummel/gadfly}. 
+In this paper we present the first public release (v0.1) of \code{gadfly}, which is available at \code{http://github.com/hummel/gadfly}.
 The framework design and organizational structure are outlined in Section \ref{sec:framework}, followed by a description of the included SPH particle rendering  in Section \ref{sec:vis}.  Our plans for future development are outlined in Section \ref{sec:future}, and a summary is provided in Section \ref{sec:summary}.
 
 \begin{figure}[h!]
@@ -332,6 +333,9 @@ In this paper we have presented the first public release of \code{gadfly}.  We h
 
 
 %\clearpage
+
+\section*{Acknowledgements}
+Thanks to Jason Jaacks and Alex Fitts for providing additional test data and bug reports, and to Thomas Robitaille for advice on creating the included figures.
 
 \bibliography{bibliography/converted_to_latex.bib%
 }
