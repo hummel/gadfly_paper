@@ -13,3 +13,4 @@ figures/structure_halo/structure_halo.png
 3-Visualization.tex
 Future.tex
 conclusions.tex
+Acknowledgements.tex
